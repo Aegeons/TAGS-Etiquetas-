@@ -1,0 +1,66 @@
+// Definition of penis size library
+const PenisSizeLibrary = (function() {
+    let sizes = new Set();
+
+    // Private function to add a penis size
+    function addSize(sizeName) {
+        const normalizedSizeName = normalizeSize(sizeName);
+
+        // Check if the penis size already exists
+        if (sizes.has(normalizedSizeName)) {
+            console.log(`"${normalizedSizeName}" size is already in the list.`);
+            return;
+        }
+
+        // Add the penis size to the list
+        sizes.add(normalizedSizeName);
+        console.log(`Added "${normalizedSizeName}" size.`);
+    }
+
+    // Private function to remove a penis size
+    function removeSize(sizeName) {
+        const normalizedSizeName = normalizeSize(sizeName);
+        if (sizes.has(normalizedSizeName)) {
+            sizes.delete(normalizedSizeName); // Remove the penis size from the set
+            console.log(`Removed "${normalizedSizeName}" size.`);
+        } else {
+            console.log(`"${normalizedSizeName}" size does not exist in the list.`);
+        }
+    }
+
+    // Private function to list all penis sizes
+    function getAllSizes() {
+        return [...sizes]; // Return a copy of the penis size array
+    }
+
+    // Private function to normalize penis size names (convert to lowercase and trim spaces)
+    function normalizeSize(sizeName) {
+        return sizeName.trim().toLowerCase();
+    }
+
+    // Add all penis sizes
+    addSize('Very Small Penis');
+    addSize('Small Penis');
+    addSize('Average Penis');
+    addSize('Large Penis');
+    addSize('Very Large Penis');
+    addSize('Huge Penis');
+
+    // Public function to get all penis sizes
+    function getAllPenisSizes() {
+        return getAllSizes();
+    }
+
+    // Return only necessary functions and variables
+    return {
+        addSize,
+        removeSize,
+        getAllPenisSizes
+    };
+
+})();
+
+// Example usage
+console.log(PenisSizeLibrary.getAllPenisSizes()); // Display all penis sizes
+PenisSizeLibrary.addSize('Average Penis'); // Example attempt to add an existing size
+console.log(PenisSizeLibrary.getAllPenisSizes()); // Display all penis sizes again
