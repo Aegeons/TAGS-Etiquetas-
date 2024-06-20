@@ -1,0 +1,66 @@
+// Definition of breast size library
+const BreastSizeLibrary = (function() {
+    let sizes = new Set();
+
+    // Private function to add a breast size
+    function addSize(sizeName) {
+        const normalizedSizeName = normalizeSize(sizeName);
+
+        // Check if the breast size already exists
+        if (sizes.has(normalizedSizeName)) {
+            console.log(`"${normalizedSizeName}" size is already in the list.`);
+            return;
+        }
+
+        // Add the breast size to the list
+        sizes.add(normalizedSizeName);
+        console.log(`Added "${normalizedSizeName}" size.`);
+    }
+
+    // Private function to remove a breast size
+    function removeSize(sizeName) {
+        const normalizedSizeName = normalizeSize(sizeName);
+        if (sizes.has(normalizedSizeName)) {
+            sizes.delete(normalizedSizeName); // Remove the breast size from the set
+            console.log(`Removed "${normalizedSizeName}" size.`);
+        } else {
+            console.log(`"${normalizedSizeName}" size does not exist in the list.`);
+        }
+    }
+
+    // Private function to list all breast sizes
+    function getAllSizes() {
+        return [...sizes]; // Return a copy of the breast size array
+    }
+
+    // Private function to normalize breast size names (convert to lowercase and trim spaces)
+    function normalizeSize(sizeName) {
+        return sizeName.trim().toLowerCase();
+    }
+
+    // Add all breast sizes
+    addSize('Very Small Breasts');
+    addSize('Small Breasts');
+    addSize('Medium Breasts');
+    addSize('Large Breasts');
+    addSize('Very Large Breasts');
+    addSize('Gigantic Breasts');
+
+    // Public function to get all breast sizes
+    function getAllBreastSizes() {
+        return getAllSizes();
+    }
+
+    // Return only necessary functions and variables
+    return {
+        addSize,
+        removeSize,
+        getAllBreastSizes
+    };
+
+})();
+
+// Example usage
+console.log(BreastSizeLibrary.getAllBreastSizes()); // Display all breast sizes
+BreastSizeLibrary.addSize('Medium Breasts'); // Example attempt to add an existing size
+console.log(BreastSizeLibrary.getAllBreastSizes()); // Display all breast sizes again
