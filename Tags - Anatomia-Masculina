@@ -1,0 +1,80 @@
+// Definición de la librería de etiquetas para anatomía masculina (partes externas)
+const MaleAnatomyLibrary = (function() {
+    let parts = new Set();
+
+    // Función privada para agregar una parte del cuerpo
+    function addPart(partName) {
+        const normalizedPartName = normalizePart(partName);
+
+        // Verificar si la parte del cuerpo ya existe
+        if (parts.has(normalizedPartName)) {
+            console.log(`La parte "${normalizedPartName}" ya está en la lista.`);
+            return;
+        }
+
+        // Agregar la parte del cuerpo a la lista
+        parts.add(normalizedPartName);
+        console.log(`Se agregó la parte "${normalizedPartName}".`);
+    }
+
+    // Función privada para eliminar una parte del cuerpo
+    function removePart(partName) {
+        const normalizedPartName = normalizePart(partName);
+        if (parts.has(normalizedPartName)) {
+            parts.delete(normalizedPartName); // Eliminar la parte del cuerpo del conjunto
+            console.log(`Se eliminó la parte "${normalizedPartName}".`);
+        } else {
+            console.log(`La parte "${normalizedPartName}" no existe en la lista.`);
+        }
+    }
+
+    // Función privada para listar todas las partes del cuerpo
+    function getAllParts() {
+        return [...parts]; // Devolver una copia del array de partes del cuerpo
+    }
+
+    // Función privada para normalizar nombres de partes del cuerpo (convertir a minúsculas y quitar espacios al inicio y fin)
+    function normalizePart(partName) {
+        return partName.trim().toLowerCase();
+    }
+
+    // Agregar todas las partes del cuerpo externas masculino
+    addPart('Head');
+    addPart('Face');
+    addPart('Neck');
+    addPart('Shoulders');
+    addPart('Chest');
+    addPart('Back');
+    addPart('Arms');
+    addPart('Hands');
+    addPart('Abdomen');
+    addPart('Waist');
+    addPart('Hips');
+    addPart('Buttocks');
+    addPart('Legs');
+    addPart('Feet');
+    addPart('Genitals');
+    addPart('Penis');
+    addPart('Testicles');
+    addPart('Scrotum');
+    addPart('Perineum');
+    addPart('Pubic Area');
+
+    // Función pública para obtener todas las partes del cuerpo externas
+    function getAllExternalParts() {
+        return getAllParts();
+    }
+
+    // Devolver solo las funciones y variables necesarias
+    return {
+        addPart,
+        removePart,
+        getAllExternalParts
+    };
+
+})();
+
+// Ejemplo de uso
+console.log(MaleAnatomyLibrary.getAllExternalParts()); // Devuelve todas las partes externas
+MaleAnatomyLibrary.addPart('Epididymis'); // Ejemplo de intento de agregar una parte interna (debe fallar)
+console.log(MaleAnatomyLibrary.getAllExternalParts()); // Muestra nuevamente todas las partes externas
