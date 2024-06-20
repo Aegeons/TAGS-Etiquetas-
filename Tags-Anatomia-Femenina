@@ -45,9 +45,9 @@ const FemaleAnatomyLibrary = (function() {
     addPart('Eyelashes');
     addPart('Eyes');
     addPart('Nose');
-    addPart('Mouth');
     addPart('UpperLip');
     addPart('LowerLip');
+    addPart('Ears');
     addPart('Neck');
     addPart('Shoulders');
     addPart('Back');
