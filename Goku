@@ -1,0 +1,78 @@
+// Goku Physical Anatomy Traits Library Definition
+const GokuPhysicalAnatomyTraitsLibrary = (function() {
+    let anatomyTraits = new Set();
+
+    // Private function to add an anatomy trait
+    function addAnatomyTrait(traitName) {
+        const normalizedTraitName = normalizeTrait(traitName);
+
+        // Check if the anatomy trait already exists
+        if (anatomyTraits.has(normalizedTraitName)) {
+            console.log(`"${normalizedTraitName}" anatomy trait is already in the list.`);
+            return;
+        }
+
+        // Add the anatomy trait to the list
+        anatomyTraits.add(normalizedTraitName);
+        console.log(`Added "${normalizedTraitName}" anatomy trait.`);
+    }
+
+    // Private function to remove an anatomy trait
+    function removeAnatomyTrait(traitName) {
+        const normalizedTraitName = normalizeTrait(traitName);
+        if (anatomyTraits.has(normalizedTraitName)) {
+            anatomyTraits.delete(normalizedTraitName); // Remove the anatomy trait from the set
+            console.log(`Removed "${normalizedTraitName}" anatomy trait.`);
+        } else {
+            console.log(`"${normalizedTraitName}" anatomy trait does not exist in the list.`);
+        }
+    }
+
+    // Private function to list all anatomy traits
+    function getAllAnatomyTraits() {
+        return [...anatomyTraits]; // Return a copy of the anatomy traits array
+    }
+
+    // Private function to normalize trait names (convert to lowercase and trim spaces)
+    function normalizeTrait(traitName) {
+        return traitName.trim().toLowerCase();
+    }
+
+    // Add all Goku physical anatomy traits
+    addAnatomyTrait('Spiky Hair');
+    addAnatomyTrait('Black Hair');
+    addAnatomyTrait('Thin Eyebrows');
+    addAnatomyTrait('Almond-shaped Eyes');
+    addAnatomyTrait('Black Eyes');
+    addAnatomyTrait('Straight Nose');
+    addAnatomyTrait('Medium-sized Mouth');
+    addAnatomyTrait('Powerful Chest');
+    addAnatomyTrait('Muscular Neck');
+    addAnatomyTrait('Strong Back');
+    addAnatomyTrait('Toned Arms');
+    addAnatomyTrait('Large Hands');
+    addAnatomyTrait('Defined Abdomen');
+    addAnatomyTrait('Narrow Waist');
+    addAnatomyTrait('Wide Hips');
+    addAnatomyTrait('Muscular Legs');
+    addAnatomyTrait('Athletic Thighs');
+    addAnatomyTrait('Strong Calves');
+
+    // Public function to get all Goku physical anatomy traits
+    function getAllGokuPhysicalAnatomyTraits() {
+        return getAllAnatomyTraits();
+    }
+
+    // Return only necessary functions and variables
+    return {
+        addAnatomyTrait,
+        removeAnatomyTrait,
+        getAllGokuPhysicalAnatomyTraits
+    };
+
+})();
+
+// Example usage
+console.log(GokuPhysicalAnatomyTraitsLibrary.getAllGokuPhysicalAnatomyTraits()); // Display all Goku physical anatomy traits
+GokuPhysicalAnatomyTraitsLibrary.addAnatomyTrait('Spiky Hair'); // Example attempt to add an existing trait
+console.log(GokuPhysicalAnatomyTraitsLibrary.getAllGokuPhysicalAnatomyTraits()); // Display all Goku physical anatomy traits again
